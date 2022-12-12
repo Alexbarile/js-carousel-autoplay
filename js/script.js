@@ -55,7 +55,7 @@ const next = document.querySelector('.next');
 
 // freccia verso dx
 
-next.addEventListener('click', function(){
+let autoplay = setInterval(function(){
     // si può mettere'imagesArray' o 'items'
     if(itemActive < imagesArray.length -1){
         //verifico l'elemento attivo (itemActive)
@@ -87,39 +87,5 @@ next.addEventListener('click', function(){
         // stessa cosa per i thumbanails
         thumbnails[itemActive].classList.add('active');
     }
-});
-
-// freccia verso sx
-
-prev.addEventListener('click', function(){
-    if(itemActive > 0){
-        //verifico l'elemento attivo (itemActive)
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        thumbnails[itemActive].classList.remove('active');
-        //decremento il suo valore di 1
-        itemActive--;
-        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-        items[itemActive].classList.add('active');
-        //stessa cosa per i cerchi
-        circles[itemActive].classList.add('active');
-        // stessa cosa per i thumbanails
-        thumbnails[itemActive].classList.add('active');
-    }
-    else{
-        //verifico l'elemento attivo (itemActive)
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-        thumbnails[itemActive].classList.remove('active');
-        //decremento il suo valore di 1
-        itemActive=imagesArray.length -1;
-        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-        items[itemActive].classList.add('active');
-        //stessa cosa per i cerchi
-        circles[itemActive].classList.add('active');
-        // stessa cosa per i thumbanails
-        thumbnails[itemActive].classList.add('active');
-    }
-})
-
+}, 3000);
 
